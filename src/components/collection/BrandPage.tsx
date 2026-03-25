@@ -31,8 +31,8 @@ export function BrandPage({
   brandId,
   searchQuery,
   onAddSeries,
-  onEditSeries,
-  onDeleteSeries,
+  onEditSeries: _onEditSeries,
+  onDeleteSeries: _onDeleteSeries,
   onAddFigurine,
   onEditFigurine,
   onDeleteFigurine,
@@ -61,8 +61,6 @@ export function BrandPage({
   const allFigs = state.figurines.filter(f => f.brandId === brandId);
   const totalOwned = allFigs.filter(f => f.status === 'owned').length;
   const totalFigs = allFigs.length;
-  const completionPercent = totalFigs > 0 ? Math.round((totalOwned / totalFigs) * 100) : 0;
-
   // Figurines for active series
   const seriesFigs = state.figurines.filter(f => f.seriesId === activeSeries?.id);
   let filtered = seriesFigs;
